@@ -1,0 +1,16 @@
+# Node.js / Next.js .gitignore
+node_modules/
+.next/
+/.next/
+dist/
+.env
+.env.local
+.DS_Store
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.vscode/
+*.log
+test-results/
+playwright-report/
+playwright/.cache/

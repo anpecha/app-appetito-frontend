@@ -1,0 +1,66 @@
+# Redesign Pro — Admin Appetito SaaS
+
+Alinhar o frontend do admin ao Style Guide do projeto Stitch "SaaS Appetito", criando um painel profissional para gestão de restaurantes, delivery e lanchonetes com identidade visual consistente.
+
+## Design System Stitch Extraído
+
+### Paleta de Cores
+| Token | Valor | Uso |
+|-------|-------|-----|
+| Primária | `#DA291C` | Branding, ícones sidebar, badges de alerta |
+| CTA/Ação | `#FFC72E` | Botões primários, destaques positivos |
+| Texto | `#202020` | Headings, texto principal |
+| Superfície | `#FFFFFF` | Fundos de cards, modal |
+| Secundária | `#F5F5F5` | Fundo da página, sidebar bg |
+
+### Tipografia
+- **Fonte:** Inter (já instalada)
+- **H1:** 32px Bold — títulos de página  
+- **H2:** 24px SemiBold — títulos de seção
+- **Body:** 14-16px Regular — conteúdo geral
+- **Label:** 12px Medium — labels, badges
+
+### Layout Sidebar
+- Sidebar fixa, largura **240px**, fundo `#111827` (quase preto)
+- Logo Appetito no topo com pill vermelho
+- Nav items com ícone + label; ativo com bg vermelho
+- Seções: Dashboard · Pedidos · Cardápio · Financeiro · Clientes · Configurações
+
+### Botões
+- **Primário:** bg `#FFC72E`, texto `#202020`, `font-semibold` — CTAs principais
+- **Secundário (Danger):** bg `#DA291C`, texto branco — ações de alerta/risco
+- **Ghost:** borda `#DA291C`, texto `#DA291C` — ações secundárias
+
+---
+
+## Arquivos a Modificar
+
+### 1. Design Tokens ([globals.css](file:///C:/Users/anpecha/OneDrive/Documentos/sistema%20appetito/appetito-frontend/src/app/globals.css))
+- Atualizar `--action-primary` para `#FFC72E` (amarelo dourado)
+- Atualizar `--action-strong` para `#DA291C` (vermelho)
+- Atualizar sidebar tokens
+
+### 2. Admin Layout Sidebar ([admin/layout.tsx](file:///c:/Users/anpecha/OneDrive/Documentos/sistema%20appetito/appetito-frontend/src/app/admin/layout.tsx))
+- Sidebar escura com nav itens redesenhados
+- Logo no topo com versão compacta
+- Badge de notificação nos pedidos
+- Avatar + nome do usuário no rodapé
+
+### 3. Dashboard ([admin/dashboard/page.tsx](file:///c:/Users/anpecha/OneDrive/Documentos/sistema%20appetito/appetito-frontend/src/app/admin/dashboard/page.tsx))
+- KPI cards com ícones coloridos e trend indicators
+- Gráfico de pedidos por hora (Recharts)
+- Lista de pedidos recentes com status chips
+- Produtos mais vendidos
+
+### 4. globals.css — novos tokens
+- `--color-brand-red: #DA291C`
+- `--color-brand-yellow: #FFC72E`
+- `--sidebar-bg: #111827`
+- `--sidebar-text: #9CA3AF`
+- `--sidebar-active-bg: #DA291C`
+
+---
+
+## Verification Plan
+- `npm run build` — Exit code 0
+- Visual check das 5 páginas principais no browser
