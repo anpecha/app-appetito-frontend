@@ -38,12 +38,12 @@
 
     /* ─── Semantic Design Tokens ─────────────────────────────────────────── */
 
-    /* Text */
-    --text-primary: 0 0% 9%;
-    --text-secondary: 0 0% 39%;
-    --text-muted: 0 0% 63%;
+    /* Text — Cinza Escuro #202020 */
+    --text-primary: 0 0% 13%;
+    --text-secondary: 0 0% 40%;
+    --text-muted: 0 0% 60%;
     --text-on-dark: 0 0% 100%;
-    --text-on-brand: 0 0% 9%;
+    --text-on-brand: 0 0% 100%;
 
     /* Surfaces */
     --surface-page: 0 0% 96%;
@@ -52,18 +52,18 @@
     --surface-subtle: 0 0% 95%;
     --surface-elevated: 0 0% 100%;
 
-    /* Actions — Mostarda + Vermelho (identidade Appetito / Stitch) */
-    --action-primary: 44 90% 52%;
-    --action-primary-hover: 44 90% 46%;
-    --action-primary-active: 44 90% 42%;
+    /* Actions — Amarelo Dourado (#FFC72E) + Vermelho McDonald's (#DA291C) */
+    --action-primary: 44 100% 59%;
+    --action-primary-hover: 44 100% 52%;
+    --action-primary-active: 44 100% 45%;
     --action-secondary: 0 0% 96%;
-    --action-strong: 4 82% 48%;
-    --action-strong-hover: 4 82% 42%;
+    --action-strong: 4 77% 48%;
+    --action-strong-hover: 4 77% 40%;
 
     /* Borders */
     --border-default: 0 0% 88%;
     --border-subtle: 0 0% 93%;
-    --border-focus: 44 90% 52%;
+    --border-focus: 4 77% 48%;
 
     /* Status */
     --status-success: 142 71% 45%;
@@ -76,8 +76,8 @@
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.06);
     --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.05);
     --shadow-card-hover: 0 6px 16px -2px rgb(0 0 0 / 0.12), 0 2px 6px -2px rgb(0 0 0 / 0.06);
-    /* Sombra amber/mostarda para o botão primário — identidade da marca */
-    --shadow-button-primary: 0 3px 10px -2px hsl(44 90% 52% / 0.5);
+    /* Sombra amarelo dourado para o botão primário */
+    --shadow-button-primary: 0 3px 10px -2px hsl(44 100% 59% / 0.5);
   }
 
   .dark {
@@ -118,16 +118,16 @@
     --surface-subtle: 220 13% 16%;
     --surface-elevated: 220 13% 18%;
 
-    --action-primary: 44 90% 52%;
-    --action-primary-hover: 44 90% 58%;
-    --action-primary-active: 44 90% 62%;
+    --action-primary: 44 100% 59%;
+    --action-primary-hover: 44 100% 65%;
+    --action-primary-active: 44 100% 70%;
     --action-secondary: 220 13% 16%;
-    --action-strong: 4 82% 48%;
-    --action-strong-hover: 4 82% 56%;
+    --action-strong: 4 77% 48%;
+    --action-strong-hover: 4 77% 56%;
 
     --border-default: 220 13% 22%;
     --border-subtle: 220 13% 18%;
-    --border-focus: 44 90% 52%;
+    --border-focus: 4 77% 48%
 
     --status-success: 142 71% 45%;
     --status-warning: 38 92% 50%;
@@ -138,7 +138,7 @@
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.35), 0 4px 6px -4px rgb(0 0 0 / 0.25);
     --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.2);
     --shadow-card-hover: 0 6px 16px -2px rgb(0 0 0 / 0.4), 0 2px 6px -2px rgb(0 0 0 / 0.25);
-    --shadow-button-primary: 0 3px 10px -2px hsl(44 90% 52% / 0.4);
+    --shadow-button-primary: 0 3px 10px -2px hsl(44 100% 59% / 0.4);
   }
 }
 

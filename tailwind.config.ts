@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -105,7 +108,7 @@ const config: Config = {
         'shadow-card-hover':
           '0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04)',
         'shadow-button-primary':
-          '0 4px 6px -1px hsla(44, 100%, 58%, 0.4), 0 2px 4px -1px hsla(44, 100%, 58%, 0.2)',
+          '0 4px 6px -1px hsla(44, 100%, 59%, 0.4), 0 2px 4px -1px hsla(44, 100%, 59%, 0.2)',
       },
       spacing: {
         'space-1': '4px',

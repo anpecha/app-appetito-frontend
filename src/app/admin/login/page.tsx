@@ -51,10 +51,10 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-surface-page p-4">
-      <Card className="w-full max-w-sm">
-        <CardHeader className="items-center pb-2">
-          <div className="mb-3 flex items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center bg-[#F5F5F5] p-4">
+      <Card className="w-full max-w-sm border-0 shadow-card">
+        <CardHeader className="items-center pb-2 pt-8">
+          <div className="mb-2 flex items-center justify-center">
             <Image
               src="/img/Logo Appetito.png"
               alt="Appetito"
@@ -64,21 +64,28 @@ export default function LoginPage() {
               priority
             />
           </div>
-          <CardDescription className="text-center font-medium">
+          <CardDescription className="text-center font-medium text-[#666666]">
             Acesse o painel do seu restaurante
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="px-8 pb-6">
           <form action={loginAction} className="space-y-6">
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-text-primary" htmlFor="email">
+              <label className="text-sm font-semibold text-[#202020]" htmlFor="email">
                 Email
               </label>
-              <Input id="email" name="email" type="email" placeholder="m@example.com" required />
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="seu@email.com"
+                required
+                className="border-[#D1D1D1] focus-visible:ring-[#DA291C]/30 focus-visible:border-[#DA291C] h-11"
+              />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-text-primary" htmlFor="password">
-                Password
+              <label className="text-sm font-semibold text-[#202020]" htmlFor="password">
+                Senha
               </label>
               <div className="relative">
                 <Input
@@ -86,26 +93,30 @@ export default function LoginPage() {
                   name="password"
                   type={showPassword ? 'text' : 'password'}
                   required
-                  className="pr-10"
+                  className="pr-10 border-[#D1D1D1] focus-visible:ring-[#DA291C]/30 focus-visible:border-[#DA291C] h-11"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((prev) => !prev)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-primary transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#999999] hover:text-[#202020] transition-colors"
                   aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
                 >
                   {showPassword ? <EyeOffIcon /> : <EyeIcon />}
                 </button>
               </div>
             </div>
-            <Button variant="primary" type="submit" className="w-full">
-              Sign In
+            <Button
+              variant="primary"
+              type="submit"
+              className="w-full h-11 text-base font-bold bg-[#FFC72E] text-[#202020] hover:bg-[#E5B329] active:bg-[#CC9F24] shadow-button-primary"
+            >
+              Entrar
             </Button>
           </form>
         </CardContent>
-        <CardFooter className="flex justify-center border-t border-border-subtle pt-6 mt-2">
-          <p className="text-xs text-text-muted">
-            &copy; {new Date().getFullYear()} Appetito. All rights reserved.
+        <CardFooter className="flex justify-center border-t border-[#E8E8E8] pt-6 pb-8">
+          <p className="text-xs text-[#999999]">
+            &copy; {new Date().getFullYear()} Appetito. Todos os direitos reservados.
           </p>
         </CardFooter>
       </Card>
