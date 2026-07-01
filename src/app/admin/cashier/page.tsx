@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
-export const dynamic = 'force-dynamic';
-
-import React, { useEffect, useState, useMemo, useCallback } from 'react';
+import React, { Suspense, useEffect, useState, useMemo, useCallback } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import {
   Search,
@@ -219,7 +217,7 @@ function CloseTableModal({
 
 // ─── Component ──────────────────────────────────────────────────────────────
 
-export default function POSCashierPage() {
+function POSCashierPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [cart, setCart] = useState<CartItem[]>([]);
@@ -885,5 +883,13 @@ export default function POSCashierPage() {
         }}
       />
     </div>
+  );
+}
+
+export default function CashierPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><Loader2 className="h-8 w-8 animate-spin" /></div>}>
+      <POSCashierPage />
+    </Suspense>
   );
 }
