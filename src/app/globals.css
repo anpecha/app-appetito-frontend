@@ -43,7 +43,7 @@
     --text-secondary: 0 0% 40%;
     --text-muted: 0 0% 60%;
     --text-on-dark: 0 0% 100%;
-    --text-on-brand: 0 0% 100%;
+    --text-on-brand: 0 0% 13%;
 
     /* Surfaces */
     --surface-page: 0 0% 96%;
@@ -127,7 +127,7 @@
 
     --border-default: 220 13% 22%;
     --border-subtle: 220 13% 18%;
-    --border-focus: 4 77% 48%
+    --border-focus: 4 77% 48%;
 
     --status-success: 142 71% 45%;
     --status-warning: 38 92% 50%;
