@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { loginAction } from '@/app/actions/auth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 
 function EyeIcon() {
@@ -49,6 +49,15 @@ function EyeOffIcon() {
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleSubmit(formData: FormData) {
+    setError(null);
+    const result = await loginAction(formData);
+    if (result?.error) {
+      setError(result.error);
+    }
+  }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#F5F5F5] p-4">
@@ -69,7 +78,12 @@ export default function LoginPage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="px-8 pb-6">
-          <form action={loginAction} className="space-y-6">
+          <form action={handleSubmit} className="space-y-6">
+            {error && (
+              <div className="rounded-md bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700 font-medium">
+                {error}
+              </div>
+            )}
             <div className="space-y-2">
               <label className="text-sm font-semibold text-[#202020]" htmlFor="email">
                 Email

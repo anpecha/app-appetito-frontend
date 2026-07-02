@@ -11,7 +11,7 @@ export async function loginAction(formData: FormData) {
   const password = formData.get('password') as string;
 
   if (!email || !password) {
-    throw new Error('Email e senha são obrigatórios');
+    return { error: 'Email e senha são obrigatórios' };
   }
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -25,7 +25,7 @@ export async function loginAction(formData: FormData) {
 
   if (error || !data?.user?.id) {
     console.error('Login Error:', error?.message);
-    throw new Error('Credenciais inválidas');
+    return { error: 'Credenciais inválidas' };
   }
 
   // Fetch the user's restaurant_id from the users table
