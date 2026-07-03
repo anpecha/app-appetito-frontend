@@ -92,6 +92,7 @@ export default function LoginPage() {
                 id="email"
                 name="email"
                 type="email"
+                autoComplete="email"
                 placeholder="seu@email.com"
                 required
                 className="border-[#D1D1D1] focus-visible:ring-[#DA291C]/30 focus-visible:border-[#DA291C] h-11"
@@ -106,6 +107,7 @@ export default function LoginPage() {
                   id="password"
                   name="password"
                   type={showPassword ? 'text' : 'password'}
+                  autoComplete="current-password"
                   required
                   className="pr-10 border-[#D1D1D1] focus-visible:ring-[#DA291C]/30 focus-visible:border-[#DA291C] h-11"
                 />
