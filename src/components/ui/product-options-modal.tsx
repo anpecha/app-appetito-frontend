@@ -106,19 +106,21 @@ export default function ProductOptionsModal({
               (g: {
                 id: string;
                 name: string;
+                min_selections?: number;
+                max_selections?: number;
                 min_options?: number;
                 max_options?: number;
-                product_options?: { id: string; name: string; price?: number }[];
+                product_options?: { id: string; name: string; price?: number; price_addition?: number }[];
               }) => ({
                 id: g.id,
                 name: g.name,
-                min_selections: g.min_options ?? 0,
-                max_selections: g.max_options ?? 1,
+                min_selections: g.min_selections ?? g.min_options ?? 0,
+                max_selections: g.max_selections ?? g.max_options ?? 1,
                 options: (g.product_options || []).map(
-                  (o: { id: string; name: string; price?: number }) => ({
+                  (o: { id: string; name: string; price?: number; price_addition?: number }) => ({
                     id: o.id,
                     name: o.name,
-                    price_addition: o.price ?? 0,
+                    price_addition: o.price_addition ?? o.price ?? 0,
                   }),
                 ),
               }),
@@ -177,8 +179,7 @@ export default function ProductOptionsModal({
       if (isSelected) {
         return { ...prev, [group.id]: groupSelections.filter((o) => o.name !== option.name) };
       } else {
-        if (groupSelections.length >= group.max_selections) {
-          // Optional: remove oldest if max == 1 to implement radio behavior naturally
+        if (group.max_selections > 0 && groupSelections.length >= group.max_selections) {
           if (group.max_selections === 1) {
             return { ...prev, [group.id]: [option] };
           }
@@ -385,11 +386,15 @@ export default function ProductOptionsModal({
                       {group.name}
                     </h3>
                     <p className="text-xs text-text-muted">
-                      Escolha de {group.min_selections} a {group.max_selections} opções.
+                      {group.max_selections === 0
+                        ? group.min_selections > 0
+                          ? `Selecione no mínimo ${group.min_selections}`
+                          : 'Opcional'
+                        : `Escolha de ${group.min_selections} a ${group.max_selections} opções.`}
                     </p>
                   </div>
                   <span className="text-xs font-bold text-text-muted bg-surface-subtle px-2 py-0.5 rounded-radius-sm">
-                    {selectionsCount} / {group.max_selections}
+                    {group.max_selections === 0 ? selectionsCount : `${selectionsCount} / ${group.max_selections}`}
                   </span>
                 </div>
                 <div className="space-y-2">

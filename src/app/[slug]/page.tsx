@@ -400,7 +400,12 @@ export default function CatalogPage({ params }: { params: { slug: string } }) {
               product_type: p.product_type ?? 'standard',
               pizza_category_id: p.pizza_category_id ?? null,
               fractional_pricing_strategy: p.fractional_pricing_strategy ?? null,
-              sizes: p.sizes ?? [],
+              sizes: (p.sizes ?? []).map((s: { id: string; size_name?: string; name?: string; price: number; max_flavors: number }) => ({
+                id: s.id,
+                name: s.name || s.size_name || '',
+                price: s.price,
+                max_flavors: s.max_flavors,
+              })),
             }),
           ),
         );

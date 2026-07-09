@@ -128,12 +128,18 @@ export default function ProductFormModal({
                     price?: number;
                     price_addition?: number;
                   }[];
+                  product_options?: {
+                    id?: string;
+                    name: string;
+                    price?: number;
+                    price_addition?: number;
+                  }[];
                 }) => ({
                   id: g.id || crypto.randomUUID(),
                   name: g.name,
                   min_options: g.min_selections || 0,
                   max_options: g.max_selections || 1,
-                  options: (g.options || []).map(
+                  options: (g.options || g.product_options || []).map(
                     (o: {
                       id?: string;
                       name: string;
