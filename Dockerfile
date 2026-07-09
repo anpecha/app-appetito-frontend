@@ -20,5 +20,6 @@ COPY --from=base /app/next.config.mjs ./next.config.mjs
 COPY --from=base /app/package.json ./package.json
 COPY --from=base /app/.next/standalone .
 EXPOSE 3000
-ENV NODE_ENV production
-CMD ["node", ".next/standalone/server.js"]
+ENV NODE_ENV=production
+ENV HOSTNAME=0.0.0.0
+CMD ["node", "server.js"]
